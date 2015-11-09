@@ -60,6 +60,7 @@
     <Compile Include="NUnitTestClass.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="CollisionRectangle.cs" />
+    <Compile Include="DrawingMode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

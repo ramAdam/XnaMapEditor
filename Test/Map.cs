@@ -16,13 +16,14 @@ namespace Test
 		const float BACK_LAYER = 0f;
 		const float MID_LAYER = .5f;
 		const float FRONT_LAYER = 1f;
-
+		//Rectangle sRect;
+		private int segmentIndex;
 
 		public Map ()
 		{
 			mapSeg = new List<MapSegment> ();
 			segDef = new List<SegmentDefinition>();
-
+			segmentIndex = 0;
 			/*segmentLayers = new List<List<MapSegment>> ();
 
 			//Adding 3 layers
@@ -37,14 +38,17 @@ namespace Test
 			get{return this.SegmentLayers; }
 		}
 
-
+		public int SegmentIndex
+		{
+			get{ return segmentIndex;}
+		}
 
 		public List<MapSegment> Segments
 		{
 			get{ return this.mapSeg;}
 		}
 
-		public int HoverOver(int mosX, int mosY, float currentLayer)
+		/*public int HoverOver(int mosX, int mosY, float currentLayer)
 		{
 			int index = -1;
 			foreach (MapSegment seg in mapSeg) 
@@ -56,29 +60,24 @@ namespace Test
 
 
 			return index;
+		}*/
+
+		public int HoverOver(int mosX, int mosY, float currentLayer)
+		{
+			int index = -1;
+			foreach (MapSegment seg in mapSeg) 
+			{
+				if (seg.DRect.Contains (mosX, mosY) && seg.Layer.CompareTo (currentLayer) == 0)
+					index = seg.Index;
+
+			}
+
+
+			return index;
 		}
 
 
 		/*public MapSegment GetMapSegment(int index, float currentLayer)
-		{
-			int segIndex = 0;
-			MapSegment mapSegment = null;
-
-			foreach (MapSegment seg in segmentLayers[getLayerIndex(currentLayer)]) 
-				{
-					if (seg.Index == index && seg.Layer.CompareTo (currentLayer) == 0) 
-					{
-						mapSegment = seg;
-					}
-
-					segIndex++;
-				}
-
-
-			return mapSegment;
-		}*/
-
-		public MapSegment GetMapSegment(int index, float currentLayer)
 		{
 			MapSegment segment = null;
 
@@ -89,16 +88,31 @@ namespace Test
 			}
 
 			return segment;
+		}*/
+
+		public MapSegment GetMapSegment(int index, float currentLayer)
+		{
+			MapSegment segment = null;
+			foreach (MapSegment seg in mapSeg) 
+			{
+				if (seg.Index == index && seg.Layer.CompareTo (currentLayer) == 0)
+					segment = seg;
+			}
+
+
+			return segment;
 		}
 
 
 
 		public void AddSeg(float layer, int index, int locX, int locY)
 		{
-			MapSegment seg = new MapSegment (index, layer);
+			MapSegment seg = new MapSegment (mapSeg.Count, layer);
 			seg.location.X = locX;
 			seg.location.Y = locY;
+			seg.SRect = segDef [index].SourceRect;
 			mapSeg.Add(seg);
+			segmentIndex++;
 		}
 
 		/*public void AddSeg(float segLayer, int palletSegIndex, int locX, int locY)
@@ -153,18 +167,23 @@ namespace Test
 			{
 				
 
-				int sWidth = (int) (segDef[seg.Index].SourceRect.Width * seg.Scale);
-				int sHeight = (int) (segDef[seg.Index].SourceRect.Height * seg.Scale);
+				//int sWidth = (int) (segDef[seg.Index].SourceRect.Width * seg.Scale);
+				//int sHeight = (int) (segDef[seg.Index].SourceRect.Height * seg.Scale);
+
+				int sWidth = (int) (seg.SRect.Width * seg.Scale);
+				int sHeight = (int) (seg.SRect.Height * seg.Scale);
 
 				seg.DRect = new Rectangle ((int)seg.location.X, (int)seg.location.Y, sWidth, sHeight);
-				Rectangle sRect = segDef [seg.Index].SourceRect;
+				//Rectangle sRect = segDef [seg.Index].SourceRect;
 
-				Vector2 origin = new Vector2 (sRect.Width / 2, sRect.Height / 2);
-					
+				//Vector2 origin = new Vector2 (sRect.Width / 2, sRect.Height / 2);
+
+				Vector2 origin = new Vector2 (seg.SRect.Width / 2, seg.SRect.Height / 2);
+
 				//spriteBatch.Draw(mapTex, seg.DRect, sRect, Color.White);
-				spriteBatch.Draw(mapTex, seg.DRect, sRect, seg.Color ,0f,origin, SpriteEffects.None, seg.Layer); 
+				//spriteBatch.Draw(mapTex, seg.DRect, sRect, seg.Color ,0f,origin, SpriteEffects.None, seg.Layer); 
 				//spriteBatch.Draw(playerBoundsTex,playerBounds,null,Color.White,0f, new Vector2(playerBoundsTex.Width/2, playerBounds.Width/2),SpriteEffects.None,0f)
-
+				spriteBatch.Draw(mapTex, seg.DRect, seg.SRect, seg.Color ,0f,origin, SpriteEffects.None, seg.Layer); 
 							
 			}
 

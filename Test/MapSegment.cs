@@ -11,7 +11,7 @@ namespace Test
 		private float layer;
 		private Color color;
 		private float scale;
-		private Rectangle dRect;
+		private Rectangle dRect, sRect;
 
 
 		public MapSegment(int segmentIndex, float layer){
@@ -62,6 +62,11 @@ namespace Test
 			}
 		}
 
+		public Rectangle SRect
+		{
+			get{ return sRect;}
+			set{ sRect = value;}
+		}
 
 
 
