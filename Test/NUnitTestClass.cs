@@ -16,7 +16,7 @@ namespace Test
 		public void Init()
 		{
 			map = new Map ();
-			map.AddSeg (1f, 0, 45, 45);
+			map.AddSeg (1f, 1, 45, 45);
 			pallet =new DrawMapSegment (map.SegmentDefinitions, 500, 30, 50, 30, 40);
 
 		}
@@ -37,7 +37,7 @@ namespace Test
 		[Test]
 		public void checkSizeOfLayers()
 		{
-			Assert.AreEqual (1, map.SegmentLayers [0].Count);
+			Assert.AreEqual (map.SegmentDefinitions[1].SourceRect, map.Segments[0].SRect );
 		}
 
 
