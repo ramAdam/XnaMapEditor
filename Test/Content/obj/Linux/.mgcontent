@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Linux</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/red.png</File>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/Arial.spritefont</File>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/Ariel.spritefont</File>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/ball.png</File>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/maps1.png</File>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/fig06.jpg</File>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/1x1.bmp</File>
+    <File>/home/dev/Documents/Monongame-workspace/Test/Test/Content/icon.png</File>
+  </SourceFiles>
+</SourceFileCollection>

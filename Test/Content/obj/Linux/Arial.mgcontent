@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>/home/dev/Documents/Monongame-workspace/Test/Test/Content/Arial.spritefont</SourceFile>
+  <SourceTime>2015-10-22T13:36:21-04:00</SourceTime>
+  <DestFile>/home/dev/Documents/Monongame-workspace/Test/Test/Content/Arial.xnb</DestFile>
+  <DestTime>2015-11-06T12:09:38-05:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2015-10-22T13:36:21-04:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2015-10-22T13:36:21-04:00</ProcessorTime>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Color</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
